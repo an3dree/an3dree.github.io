@@ -109,6 +109,14 @@ body {
   gap: 6px;
   color: var(--text-light);
 }
+.hidden-but-accessible {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 .name {
   font-family: "Fira Code", monospace;
