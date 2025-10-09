@@ -10,11 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-# Concurrency para evitar deploys simultâneos
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
