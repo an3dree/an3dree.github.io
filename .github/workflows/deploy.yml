@@ -3,8 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
-# Permissões necessárias para o GITHUB_TOKEN
 permissions:
   contents: read
   pages: write
