@@ -1,8 +1,3 @@
-
-// Pelo seu avatar, seu user ID é 55762057, que corresponde ao username "Andre-Souza-Dev"
-// Se for outro, apenas troque abaixo.
-const GITHUB_USERNAME = "Andre-Souza-Dev";
-
 export default function GitHubStats() {
   return (
     <section className="github-stats-section">

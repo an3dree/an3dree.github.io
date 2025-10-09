@@ -1,6 +1,3 @@
-import react from "react";
-//import '../App.css';
-
 const ProfileSection: React.FC = () => {
   return (
       <section className="profile-section">
