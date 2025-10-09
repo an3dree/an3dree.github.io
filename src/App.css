@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 #root {
-  max-width: 1280px;
+
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -25,6 +32,57 @@
   --button-hover: #4a4f5a;
 
 }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: "Fira Code", monospace;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: var(--background-medium);
+  /* Cor de fundo */
+  border-bottom: 1px solid var(--border-color);
+  /* Linha sutil de borda */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  /* Cor principal para o nome */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-brand a:hover {
+  color: var(--secondary-color);
+  /* Cor secundária no hover */
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: var(--text-light);
+  /* Cor de texto clara */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: var(--primary-color);
+  /* Cor principal no hover */
+}
+
 
 body {
   margin: 0;
@@ -80,4 +138,28 @@ body {
 
 .profile-pic:hover {
   transform: scale(1.05);
+}
+
+.github-stats-section {
+  padding: 2rem;
+  text-align: center;
+  /* Centraliza o título e o container */
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #93c5fd;
+  /* Um azul claro */
+  margin-bottom: 2rem;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  /* Centraliza os cards */
+  align-items: center;
+  gap: 2rem;
+  /* Espaço entre os cards */
+  flex-wrap: wrap;
+  /* Permite que os cards quebrem para a linha de baixo em telas pequenas */
 }
