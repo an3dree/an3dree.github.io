@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nextech.netlify.app/sitemap.xml
