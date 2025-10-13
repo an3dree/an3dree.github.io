@@ -19,16 +19,15 @@ export default function Skills({
   const [isActive, setIsActive] = useState(false);
   const [barWidth, setBarWidth] = useState(40);
 
-  // Ajusta o tamanho da barra baseado na largura da tela
   useEffect(() => {
     const updateBarWidth = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 480) {
-        setBarWidth(20); // Telas pequenas
+        setBarWidth(20);
       } else if (screenWidth < 768) {
-        setBarWidth(30); // Tablets
+        setBarWidth(30);
       } else {
-        setBarWidth(40); // Desktop
+        setBarWidth(40);
       }
     };
 
@@ -37,7 +36,6 @@ export default function Skills({
     return () => window.removeEventListener("resize", updateBarWidth);
   }, []);
 
-  // Controla quando iniciar a animação
   useEffect(() => {
     if (!start) return;
 
@@ -48,7 +46,6 @@ export default function Skills({
     return () => clearTimeout(timeout);
   }, [start, delay]);
 
-  // Animação da barra de progresso
   useEffect(() => {
     if (!isActive) return;
 
