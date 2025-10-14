@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +12,6 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-content">
-
         <div className="navbar-brand">
           <Link to="/">@an3dree</Link>
         </div>
@@ -20,27 +19,25 @@ export default function Navbar() {
         <div className="navbar-links">
           <Link
             to="/projects"
-            className={location.pathname === '/projects' ? 'active' : ''}
+            className={location.pathname === "/projects" ? "active" : ""}
           >
             /projects
           </Link>
 
           <Link
             to="/skills"
-            className={location.pathname === '/skills' ? 'active' : ''}
+            className={location.pathname === "/skills" ? "active" : ""}
           >
             /skills
           </Link>
 
           <Link
             to="/career"
-            className={location.pathname === '/career' ? 'active' : ''}
+            className={location.pathname === "/career" ? "active" : ""}
           >
             /career
           </Link>
-
         </div>
-
 
         <button
           className="navbar-toggle"
@@ -52,10 +49,10 @@ export default function Navbar() {
           <span></span>
         </button>
 
-        <div className={`navbar-mobile ${isMenuOpen ? 'open' : ''}`}>
+        <div className={`navbar-mobile ${isMenuOpen ? "open" : ""}`}>
           <Link
             to="/projects"
-            className={location.pathname === '/projects' ? 'active' : ''}
+            className={location.pathname === "/projects" ? "active" : ""}
             onClick={() => setIsMenuOpen(false)}
           >
             /projects
@@ -63,7 +60,7 @@ export default function Navbar() {
 
           <Link
             to="/skills"
-            className={location.pathname === '/skills' ? 'active' : ''}
+            className={location.pathname === "/skills" ? "active" : ""}
             onClick={() => setIsMenuOpen(false)}
           >
             /skills
@@ -71,7 +68,7 @@ export default function Navbar() {
 
           <Link
             to="/career"
-            className={location.pathname === '/career' ? 'active' : ''}
+            className={location.pathname === "/career" ? "active" : ""}
             onClick={() => setIsMenuOpen(false)}
           >
             /career
