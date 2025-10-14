@@ -1,173 +1,378 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 #root {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-
-  --primary-color: #61dafb;
-  /* React Blue */
-  --secondary-color: #21a1f1;
-  /* Darker React Blue */
-  --accent-color-purple: #8a2be2;
-  /* Um roxo vibrante para o dock */
-  --background-dark: #1a1a1a;
-  --background-medium: #282c34;
-  --background-light: #3a3f4a;
-  --text-light: #e0e0e0;
-  --text-medium: #b0b0b0;
-  --border-color: #3a3f4a;
-  --card-background: #3a3f4a;
-  --card-shadow: rgba(0, 0, 0, 0.3);
-  --button-hover: #4a4f5a;
-
+    --primary-color: #61dafb;
+    --secondary-color: #21a1f1;
+    --accent-color-purple: #8a2be2;
+    --background-dark: #1a1a1a;
+    --background-medium: #282c34;
+    --background-light: #3a3f4a;
+    --text-light: #e0e0e0;
+    --text-medium: #b0b0b0;
+    --border-color: #3a3f4a;
+    --card-background: #3a3f4a;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --button-hover: #4a4f5a;
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  font-family: "Fira Code", monospace;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: "Fira Code", monospace;
+    background-color: var(--background-medium);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+}
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 2rem;
-  background-color: var(--background-medium);
-  /* Cor de fundo */
-  border-bottom: 1px solid var(--border-color);
-  /* Linha sutil de borda */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .navbar-brand a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  /* Cor principal para o nome */
-  text-decoration: none;
-  transition: color 0.3s;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .navbar-brand a:hover {
-  color: var(--secondary-color);
-  /* Cor secundária no hover */
+    color: var(--secondary-color);
 }
 
 .navbar-links {
-  display: flex;
-  gap: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
 }
 
 .navbar-links a {
-  color: var(--text-light);
-  /* Cor de texto clara */
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
 }
 
-.navbar-links a:hover {
-  color: var(--primary-color);
-  /* Cor principal no hover */
+.navbar-links a:hover,
+.navbar-links a.active {
+    color: var(--primary-color);
+    background-color: rgba(97, 218, 251, 0.1);
 }
 
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 4px;
+}
+
+.navbar-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-light);
+    transition: 0.3s;
+}
+
+.navbar-mobile {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-medium);
+    border-top: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.navbar-mobile.open {
+    display: flex;
+}
+
+.navbar-mobile a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile a.active {
+    color: var(--primary-color);
+    background-color: rgba(97, 218, 251, 0.1);
+}
+
+/* MAIN CONTENT */
+main {
+    padding-top: 60px;
+    min-height: calc(100vh - 60px);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
 
 body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-dark);
-  color: var(--text-light);
-  line-height: 1.6;
-  scroll-behavior: smooth;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    min-height: 100%;
 }
 
 .profile-section {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    justify-content: center;
 }
 
 .title-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-align: center;
 }
+
 .hidden-but-accessible {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 .name {
-  font-family: "Fira Code", monospace;
-  font-size: 3.2rem;
-  color: var(--primary-color);
-  font-weight: bold;
-  line-height: 1.2;
+    font-family: "Fira Code", monospace;
+    font-size: 3.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    line-height: 1.2;
 }
 
 .title {
-  font-family: "Fira Code", monospace;
-  font-size: 1.3rem;
-  color: var(--text-medium);
-  font-weight: 500;
+    font-family: "Fira Code", monospace;
+    font-size: 1.3rem;
+    color: var(--text-medium);
+    font-weight: 500;
 }
 
+.sub-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    max-width: 500px;
+    line-height: 1.5;
+}
 
 .profile-pic {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--primary-color);
-  box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
-  transition: transform 0.3s ease;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
 .profile-pic:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .github-stats-section {
-  padding: 2rem;
-  text-align: center;
-  /* Centraliza o título e o container */
+    padding: 2rem 0;
+    text-align: center;
 }
 
 .section-title {
-  font-size: 2rem;
-  color: #93c5fd;
-  /* Um azul claro */
-  margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-family: "Fira Code", monospace;
 }
 
 .stats-container {
-  display: flex;
-  justify-content: center;
-  /* Centraliza os cards */
-  align-items: center;
-  gap: 2rem;
-  /* Espaço entre os cards */
-  flex-wrap: wrap;
-  /* Permite que os cards quebrem para a linha de baixo em telas pequenas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.stats-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+
+/* Tablets (768px pra baixo) */
+@media (max-width: 768px) {
+    .navbar-content {
+        padding: 0.5rem 1rem;
+    }
+
+    main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 60px;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .sub-title {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .stats-container img {
+        max-width: 100%;
+        height: 140px;
+    }
+
+    .github-stats-section {
+        padding: 1.5rem 0;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand a {
+        font-size: 1.25rem;
+    }
+
+    .navbar-content {
+        padding: 0.5rem;
+    }
+
+    main {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 55px;
+    }
+
+    .profile-section {
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .sub-title {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+    }
+
+    .stats-container img {
+        height: 120px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .github-stats-section {
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .name {
+        font-size: 1.75rem;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .stats-container img {
+        height: 100px;
+    }
 }
