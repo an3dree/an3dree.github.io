@@ -5,6 +5,7 @@ import GitHubStatus from "./components/GitHubStatus";
 import ProjectsPage from "./components/ProjectsPage.tsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SkillsSection from "./components/SkillsSection.tsx";
+import CareerPage from "./components/CareerPage.tsx";
 
 function HomePage() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/skills" element={<SkillsSection />} />
+            <Route path="/career" element={<CareerPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         </main>
